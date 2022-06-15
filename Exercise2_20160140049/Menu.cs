@@ -19,6 +19,8 @@ namespace Exercise2_20160140049
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'exercise2PABDDataSet.user' table. You can move, or remove it, as needed.
+            this.userTableAdapter.Fill(this.exercise2PABDDataSet.user);
             this.CenterToScreen();
         }
     }

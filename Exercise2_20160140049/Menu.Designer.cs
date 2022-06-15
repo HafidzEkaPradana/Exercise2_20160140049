@@ -56,9 +56,14 @@ namespace Exercise2_20160140049
             this.txName = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.exercise2PABDDataSet = new Exercise2_20160140049.Exercise2PABDDataSet();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userTableAdapter = new Exercise2_20160140049.Exercise2PABDDataSetTableAdapters.userTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exercise2PABDDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -149,6 +154,7 @@ namespace Exercise2_20160140049
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.userBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -308,8 +314,22 @@ namespace Exercise2_20160140049
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(524, 41);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Lihat Nilai";
+            this.button4.Text = "Lihat Mahasiswa";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // exercise2PABDDataSet
+            // 
+            this.exercise2PABDDataSet.DataSetName = "Exercise2PABDDataSet";
+            this.exercise2PABDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataMember = "user";
+            this.userBindingSource.DataSource = this.exercise2PABDDataSet;
+            // 
+            // userTableAdapter
+            // 
+            this.userTableAdapter.ClearBeforeFill = true;
             // 
             // Menu
             // 
@@ -330,6 +350,8 @@ namespace Exercise2_20160140049
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exercise2PABDDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +384,8 @@ namespace Exercise2_20160140049
         private System.Windows.Forms.TextBox txCode;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private Exercise2PABDDataSet exercise2PABDDataSet;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private Exercise2PABDDataSetTableAdapters.userTableAdapter userTableAdapter;
     }
 }

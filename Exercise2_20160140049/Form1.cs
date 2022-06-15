@@ -19,21 +19,54 @@ namespace Exercise2_20160140049
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            this.Close();
+            this.CenterToScreen();
+            loginPanel.BringToFront();
         }
 
-        private void btLogin_Click(object sender, EventArgs e)
+        private void btnToLogin_Click(object sender, EventArgs e)
+        {
+            loginPanel.BringToFront();
+            btnToLogin.BackColor = select_color;
+            loginPanel.BackColor = select_color;
+            btnToRegister.BackColor = Color.Black;
+            regisPanel.BackColor = Color.Black;
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            this.Close();
+        }
+        Color select_color = Color.FromArgb(46, 49, 49);
+        private void btnToRegister_Click(object sender, EventArgs e)
+        {
+            regisPanel.BringToFront();
+            btnToRegister.BackColor = select_color;
+            regisPanel.BackColor = select_color;
+            btnToLogin.BackColor = Color.Black;
+            loginPanel.BackColor = Color.Black;
+           
+
+        }
+
+        private void regisBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginbtn_Click(object sender, EventArgs e)
         {
             String user, user_password;
-            user = txUsername.Text;
-            user_password = txPass.Text;
+            user = txLoginUsername.Text;
+            user_password = txLoginPass.Text;
 
 
             try
             {
-                String query = "SELECT * FROM Login WHERE username = '" + txUsername.Text + "' AND password = '" + txPass.Text + "'";
+                String query = "SELECT * FROM Login WHERE username = '" + txLoginUsername.Text + "' AND password = '" + txLoginPass.Text + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
 
                 DataTable dtable = new DataTable();
@@ -45,7 +78,7 @@ namespace Exercise2_20160140049
                     this.Hide();
                     menu.Show();
                 }
-                else if (txUsername.Text == "" || txPass.Text == "")
+                else if (txLoginUsername.Text == "" || txLoginPass.Text == "")
                 {
                     MessageBox.Show("Username dan Password belum diisi !!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -56,36 +89,21 @@ namespace Exercise2_20160140049
                 }
                 else
                 {
-                    MessageBox.Show("Username dan Password yang anda masukkan salah !!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txUsername.Clear();
-                    txPass.Clear();
+                    MessageBox.Show("Username dan Password yang anda masukkan salah !!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txLoginUsername.Clear();
+                    txLoginPass.Clear();
 
-                    txUsername.Focus();
+                    txLoginUsername.Focus();
                 }
             }
             catch
             {
-
+                MessageBox.Show("Error");
             }
             finally
             {
                 conn.Close();
             }
-
-
-            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Register regis = new Register();
-            regis.Show();
-            this.Hide();
         }
     } 
 }
