@@ -218,8 +218,8 @@ namespace Exercise2_20160140049
             this.ClientSize = new System.Drawing.Size(838, 548);
             this.Controls.Add(this.btnToRegister);
             this.Controls.Add(this.btnToLogin);
-            this.Controls.Add(this.regisPanel);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.regisPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
