@@ -38,6 +38,7 @@ namespace Exercise2_20160140049
             this.btLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -85,7 +86,7 @@ namespace Exercise2_20160140049
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(302, 328);
+            this.button1.Location = new System.Drawing.Point(32, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 41);
             this.button1.TabIndex = 5;
@@ -124,11 +125,22 @@ namespace Exercise2_20160140049
             this.label4.TabIndex = 8;
             this.label4.Text = "Pengembangan Aplikasi Basis Data";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(302, 328);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 41);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Register";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 467);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btLogin);
@@ -157,6 +169,7 @@ namespace Exercise2_20160140049
         private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -80,5 +80,12 @@ namespace Exercise2_20160140049
         {
             this.CenterToScreen();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Register regis = new Register();
+            regis.Show();
+            this.Hide();
+        }
     } 
 }
