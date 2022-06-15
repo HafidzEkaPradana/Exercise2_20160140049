@@ -14,6 +14,7 @@ namespace Exercise2_20160140049
     public partial class Form1 : Form
     {
         SqlConnection conn = new SqlConnection("data source=LAPTOP-8MKEQ456; database=Exercise2PABD; Integrated Security=True; User ID=sa;Password=mentepermaib20");
+
         public Form1()
         {
             InitializeComponent();
@@ -54,7 +55,16 @@ namespace Exercise2_20160140049
 
         private void regisBtn_Click(object sender, EventArgs e)
         {
-
+            SqlConnection conn = new SqlConnection("data source=LAPTOP-8MKEQ456; database=Exercise2PABD; Integrated Security=True; User ID=sa;Password=mentepermaib20");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Login]([username],[password]) VALUES ('"+txRegisUser.Text+"','"+txRegisPass.Text+"')",conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Berhasil Registrasi", "Notifikasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txRegisUser.Clear();
+            txRegisPass.Clear();
+            
+            txRegisUser.Focus();
         }
 
         private void loginbtn_Click(object sender, EventArgs e)
@@ -66,6 +76,7 @@ namespace Exercise2_20160140049
 
             try
             {
+                conn.Open();
                 String query = "SELECT * FROM Login WHERE username = '" + txLoginUsername.Text + "' AND password = '" + txLoginPass.Text + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
 
